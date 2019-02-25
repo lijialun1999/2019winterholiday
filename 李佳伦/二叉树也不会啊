@@ -1,0 +1,49 @@
+#include<iostream>
+using namespace std;
+
+class tree
+{
+public:
+    int num=0;
+    tree *lchild=NULL;
+    tree *rchild=NULL;
+};
+void www(tree *t)//´´½¨
+{
+    int i;
+    cin>>i;
+    if(i==0)
+    {
+        t=NULL;
+    }
+    else
+    {
+        tree *p=new tree;
+        tree *s=new tree;
+        t->lchild=p;
+        t->rchild=s;
+        t->num=i;
+        www(t->lchild);
+        www(t->rchild);
+    }
+}
+void qq(tree *t)//±éÀú
+{
+    if(t!=NULL)
+    {
+        cout<<t->num<<' ';
+        qq(t->lchild);
+        qq(t->rchild);
+    }
+}
+
+int main()
+{
+    int i,n;
+    tree *t=new tree;
+    cin>>i;
+    cout<<"Create a binary tree,0 is Insert a node"<<endl;
+    www(t);
+    qq(t);
+    return 0;
+}
